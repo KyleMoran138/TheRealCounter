@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div v-for="listItem in listItems">
-      <count-item :ItemName="listItem.name" :Count="listItem.count"></count-item>
-    </div>
+  <div class="count-item-list">
+    <count-item v-bind:key="listItem.name" v-for="listItem in listItems" :ItemName="listItem.name" :Count="listItem.count"></count-item>
   </div>
 </template>
 
@@ -18,14 +16,15 @@ export default {
     return {
       listItems: [
         {name: "event", count: 0},
-        {name: "Oh my goodness", count: 10}
-      ],
-
+      ]
     }
   }
 }
 </script>
 
-<style scope>
-
+<style lang="scss" scope>
+.count-item-list{
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
